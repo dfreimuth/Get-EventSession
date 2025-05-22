@@ -653,6 +653,8 @@ param(
     # Fix 'Could not create SSL/TLS secure channel' issues with Invoke-WebRequest
     [Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
 
+    $PSStyle.Progress.MaxWidth = $Host.UI.RawUI.WindowSize.Width - 2  # Fix progress bar width
+
     $script:BackgroundDownloadJobs= @()
 
     Function Iif($Cond, $IfTrue, $IfFalse) {
